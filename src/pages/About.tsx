@@ -24,7 +24,7 @@ const About: React.FC = () => {
             >
               Our Vision
             </Typography>
-            <Typography variant="h4" component="h1" sx={{ mb: 3, fontWeight: 'bold' }}>
+            <Typography variant="h4"  sx={{ mb: 3, fontWeight: 'bold' }}>
               Expanding Horizons Through Curated Explorations
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.85 }}>

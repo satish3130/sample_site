@@ -37,7 +37,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       )}
       <Typography
         variant="h4"
-        component="h2"
+        
         sx={{
           fontWeight: 'bold',
           color: 'text.primary',

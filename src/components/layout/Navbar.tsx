@@ -1,220 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
   Typography,
-  Box,
-  Container,
+  Button,
   IconButton,
   Drawer,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  useScrollTrigger,
+  Box,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import { Link, useLocation } from 'react-router-dom';
-import AppButton from '../common/AppButton';
 import { navLinks } from '../../data';
 
 const Navbar: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 10 });
-
-  useEffect(() => {
-    setScrolled(trigger);
-  }, [trigger]);
-
-  const isActive = (href: string) => location.pathname === href;
-
   return (
     <>
-      <AppBar
-        position="fixed"
-        elevation={0}
-        sx={{
-          backgroundColor: scrolled ? 'rgba(251, 250, 247, 0.85)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(15, 118, 110, 0.08)' : 'none',
-          boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.02)' : 'none',
-          transition: 'all 0.3s ease',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ py: 1 }}>
-            {/* Logo */}
-            <Box
-              component={Link}
-              to="/"
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1,
-                textDecoration: 'none',
-                flexGrow: { xs: 1, md: 0 },
-              }}
-            >
-              <Box
-                sx={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 1.5,
-                  background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <TravelExploreIcon sx={{ color: '#ffffff', fontSize: 20 }} />
-              </Box>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 900,
-                  letterSpacing: '-0.02em',
-                  background: 'linear-gradient(90deg, #0f766e 0%, #b45309 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Roamify
-              </Typography>
+      <AppBar position="sticky">
+        <Toolbar>
+          <FlightTakeoffIcon sx={{ mr: 1 }} />
+          <Typography
+            variant="h6"
+            component={Link}
+            to="/"
+            sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}
+          >
+            Roamify
+          </Typography>
+
+          {!isMobile && (
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              {navLinks.map((link) => (
+                <Button
+                  key={link.href}
+                  component={Link}
+                  to={link.href}
+                  color="inherit"
+                  variant={location.pathname === link.href ? 'outlined' : 'text'}
+                >
+                  {link.label}
+                </Button>
+              ))}
+              <Button variant="contained" color="secondary" component={Link} to="/contact">
+                Book Now
+              </Button>
             </Box>
+          )}
 
-            {/* Desktop Nav */}
-            {!isMobile && (
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 0.5,
-                  mx: 'auto',
-                }}
-              >
-                {navLinks.map((link) => (
-                  <Box
-                    key={link.href}
-                    component={Link}
-                    to={link.href}
-                    sx={{
-                      textDecoration: 'none',
-                      px: 2,
-                      py: 1,
-                      borderRadius: 2,
-                      fontSize: '0.9rem',
-                      fontWeight: isActive(link.href) ? 750 : 500,
-                      color: isActive(link.href) ? 'primary.main' : 'text.primary',
-                      backgroundColor: isActive(link.href) ? 'rgba(15, 118, 110, 0.06)' : 'transparent',
-                      transition: 'all 0.2s ease',
-                      '&:hover': {
-                        color: 'primary.main',
-                        backgroundColor: 'rgba(15, 118, 110, 0.04)',
-                      },
-                    }}
-                  >
-                    {link.label}
-                  </Box>
-                ))}
-              </Box>
-            )}
-
-            {/* CTA */}
-            {!isMobile && (
-              <Box sx={{ display: 'flex', gap: 1.5, ml: 2 }}>
-                <AppButton variant="text" size="small" sx={{ color: 'text.primary' }}>
-                  Sign In
-                </AppButton>
-                <AppButton variant="contained" size="small" color="primary">
-                  Book Now
-                </AppButton>
-              </Box>
-            )}
-
-            {/* Mobile Hamburger */}
-            {isMobile && (
-              <IconButton
-                onClick={() => setDrawerOpen(true)}
-                sx={{ color: 'text.primary' }}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-          </Toolbar>
-        </Container>
+          {isMobile && (
+            <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        slotProps={{
-          paper: {
-            sx: {
-              width: 280,
-              p: 3,
-              background: 'rgba(251, 250, 247, 0.98)',
-              backdropFilter: 'blur(20px)',
-              borderLeft: '1px solid rgba(15, 118, 110, 0.08)',
-            },
-          },
-        }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: 800, color: 'primary.main' }}>
-            Menu
-          </Typography>
-          <IconButton onClick={() => setDrawerOpen(false)}>
-            <CloseIcon />
-          </IconButton>
-        </Box>
-        <List>
-          {navLinks.map((link) => (
-            <ListItem key={link.href} disablePadding>
-              <ListItemButton
-                component={Link}
-                to={link.href}
-                onClick={() => setDrawerOpen(false)}
-                selected={isActive(link.href)}
-                sx={{
-                  borderRadius: 2,
-                  mb: 0.5,
-                  '&.Mui-selected': {
-                    bgcolor: 'rgba(15, 118, 110, 0.08)',
-                    color: 'primary.main',
-                  },
-                }}
-              >
-                <ListItemText
-                  primary={link.label}
-                  slotProps={{ primary: { sx: { fontWeight: isActive(link.href) ? 750 : 500 } } }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Box sx={{ mt: 3, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-          <AppButton variant="outlined" color="primary" fullWidth>
-            Sign In
-          </AppButton>
-          <AppButton variant="contained" color="primary" fullWidth>
-            Book Now
-          </AppButton>
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <Box sx={{ width: 250 }}>
+          <List>
+            {navLinks.map((link) => (
+              <ListItem key={link.href} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to={link.href}
+                  selected={location.pathname === link.href}
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <ListItemText primary={link.label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Drawer>
-
-      {/* Toolbar spacer */}
-      <Toolbar sx={{ mb: 1 }} />
     </>
   );
 };

@@ -1,18 +1,21 @@
 import React from 'react';
-import { Box, Container } from '@mui/material';
-import SectionHeading from '../common/SectionHeading';
+import { Box, Container, Typography } from '@mui/material';
 import FAQAccordion from '../common/FAQAccordion';
 import { faqs } from '../../data';
 
 const FAQSection: React.FC = () => {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.paper' }}>
+    <Box sx={{ py: 8, bgcolor: 'grey.50' }}>
       <Container maxWidth="md">
-        <SectionHeading
-          eyebrow="Questions & Answers"
-          title="Frequently Asked Questions"
-          subtitle="Have queries regarding booking custom itineraries, visa document assistance, cancellation policies, or safety guidelines? Check below."
-        />
+        <Typography variant="overline" color="primary"   sx={{ mb: 1, display: "block" }}>
+          Questions & Answers
+        </Typography>
+        <Typography variant="h4"   sx={{ fontWeight: "bold", mb: 1 }}>
+          Frequently Asked Questions
+        </Typography>
+        <Typography variant="body1" color="text.secondary"  sx={{ mb: 4 }}>
+          Have questions about bookings, visas, cancellations, or safety? Find answers below.
+        </Typography>
         <FAQAccordion items={faqs} />
       </Container>
     </Box>

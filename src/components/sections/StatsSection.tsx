@@ -5,15 +5,7 @@ import { stats } from '../../data';
 
 const StatsSection: React.FC = () => {
   return (
-    <Box
-      sx={{
-        py: 6,
-        bgcolor: 'background.paper',
-        borderTop: '1px solid',
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-      }}
-    >
+    <Box sx={{ py: 6, bgcolor: 'grey.50' }}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           {stats.map((stat, idx) => (
