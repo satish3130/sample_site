@@ -19,50 +19,48 @@ interface TeamCardProps {
   sx?: SxProps<Theme>;
 }
 
-const avatarColors = ['#6C63FF', '#FF6584', '#43D9A3', '#FFA726'];
-
 const TeamCard: React.FC<TeamCardProps> = ({ member, sx }) => {
-  const avatarBg = avatarColors[(member.id - 1) % avatarColors.length];
-
   return (
-    <Card sx={{ textAlign: 'center', ...sx }}>
+    <Card sx={{ textAlign: 'center', height: '100%', ...sx }}>
       <CardContent sx={{ p: 4 }}>
         <Avatar
           sx={{
             width: 80,
             height: 80,
-            bgcolor: avatarBg,
+            bgcolor: 'primary.main',
+            color: '#fff',
             fontWeight: 800,
-            fontSize: '1.4rem',
+            fontSize: '1.5rem',
             mx: 'auto',
-            mb: 2,
-            boxShadow: `0 8px 24px ${avatarBg}50`,
+            mb: 2.5,
+            border: '4px solid rgba(15, 118, 110, 0.12)',
+            boxShadow: '0 4px 12px rgba(15, 118, 110, 0.15)',
           }}
         >
           {member.avatar}
         </Avatar>
-        <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 0.5, color: 'text.primary' }}>
           {member.name}
         </Typography>
-        <Typography variant="body2" color="primary" sx={{ fontWeight: 600, mb: 1.5 }}>
+        <Typography variant="body2" color="secondary" sx={{ fontWeight: 700, mb: 2, letterSpacing: '0.02em', textTransform: 'uppercase', fontSize: '0.75rem' }}>
           {member.role}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.75, mb: 2.5 }}>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6 }}>
           {member.bio}
         </Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 0.5 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
           {member.socials.twitter && (
-            <IconButton size="small" href={member.socials.twitter} sx={{ color: '#1DA1F2' }}>
+            <IconButton size="small" href={member.socials.twitter} color="primary" sx={{ border: '1px solid', borderColor: 'divider' }}>
               <TwitterIcon fontSize="small" />
             </IconButton>
           )}
           {member.socials.linkedin && (
-            <IconButton size="small" href={member.socials.linkedin} sx={{ color: '#0A66C2' }}>
+            <IconButton size="small" href={member.socials.linkedin} color="primary" sx={{ border: '1px solid', borderColor: 'divider' }}>
               <LinkedInIcon fontSize="small" />
             </IconButton>
           )}
           {member.socials.github && (
-            <IconButton size="small" href={member.socials.github} sx={{ color: '#333' }}>
+            <IconButton size="small" href={member.socials.github} color="primary" sx={{ border: '1px solid', borderColor: 'divider' }}>
               <GitHubIcon fontSize="small" />
             </IconButton>
           )}

@@ -6,12 +6,12 @@ import { blogPosts } from '../data';
 
 const Blog: React.FC = () => {
   return (
-    <Box sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'background.default', minHeight: '80vh' }}>
+    <Box sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'background.default', minHeight: '85vh' }}>
       <Container maxWidth="lg">
         <SectionHeading
-          eyebrow="Resources & News"
-          title="From The AP Tech Blog"
-          subtitle="Insights, guides, and updates on front-end development, Material UI practices, design systems, and UX trends."
+          eyebrow="Travel Blog"
+          title="Wanderlust Chronicles"
+          subtitle="Explore travel guides, packing lists, destination tips, and local secrets shared by our expert travel curators and guides."
         />
         <Grid container spacing={4}>
           {blogPosts.map((post) => (

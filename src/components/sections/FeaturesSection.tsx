@@ -9,11 +9,11 @@ const FeaturesSection: React.FC = () => {
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <SectionHeading
-          eyebrow="Why AP Tech"
-          title="Everything You Need to Ship Fast"
-          subtitle="A thoughtfully designed toolkit of reusable components and patterns that grows with your product. Stop reinventing the wheel."
+          eyebrow="Trending Destinations"
+          title="Explore Curated Global Getaways"
+          subtitle="Discover handpicked cities, breathtaking coastlines, wildlife sanctuaries, and active alpine peaks prepared by our local guides."
         />
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {features.map((feature) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={feature.id}>
               <FeatureCard feature={feature} />

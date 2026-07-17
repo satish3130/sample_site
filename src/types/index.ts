@@ -5,10 +5,15 @@ export interface NavLink {
 
 export interface Feature {
   id: number;
-  icon: string;
-  title: string;
+  icon: string; // MuiIcon name
+  title: string; // Destination/Feature name
   description: string;
   color: string;
+  image?: string; // Image URL for destinations
+  rating?: number; // 1-5 rating
+  price?: string; // Starting price
+  duration?: string; // Duration of stay
+  category?: string; // e.g. "Beach", "Cultural", "Safari"
 }
 
 export interface Stat {
@@ -33,10 +38,13 @@ export interface PricingPlan {
   price: string;
   period: string;
   description: string;
-  features: string[];
+  features: string[]; // Package inclusions
   cta: string;
   popular?: boolean;
   color: string;
+  image?: string; // Package image
+  duration?: string; // Package duration (e.g. "8 Days")
+  rating?: number; // Package rating
 }
 
 export interface TeamMember {
@@ -59,7 +67,7 @@ export interface BlogPost {
   category: string;
   date: string;
   readTime: string;
-  image: string;
+  image: string; // Icon or Image category
   author: string;
   authorAvatar: string;
 }

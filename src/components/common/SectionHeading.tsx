@@ -19,16 +19,16 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   eyebrowColor = 'primary.main',
 }) => {
   return (
-    <Box sx={{ textAlign: align, mb: 7, ...sx }}>
+    <Box sx={{ textAlign: align, mb: 6, ...sx }}>
       {eyebrow && (
         <Typography
           variant="overline"
           sx={{
             color: eyebrowColor,
-            fontWeight: 800,
-            letterSpacing: '0.12em',
+            fontWeight: 'bold',
+            letterSpacing: '0.08em',
             fontSize: '0.75rem',
-            mb: 1.5,
+            mb: 1,
             display: 'block',
           }}
         >
@@ -36,14 +36,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         </Typography>
       )}
       <Typography
-        variant="h2"
+        variant="h4"
+        component="h2"
         sx={{
-          fontSize: { xs: '2rem', md: '2.8rem' },
-          mb: subtitle ? 2.5 : 0,
-          background: 'linear-gradient(135deg, #1A1A2E 0%, #6C63FF 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          fontWeight: 'bold',
+          color: 'text.primary',
+          mb: subtitle ? 2 : 0,
         }}
       >
         {title}
@@ -55,8 +53,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           sx={{
             maxWidth: 600,
             mx: align === 'center' ? 'auto' : 0,
-            lineHeight: 1.8,
-            fontSize: '1.05rem',
+            lineHeight: 1.6,
           }}
         >
           {subtitle}

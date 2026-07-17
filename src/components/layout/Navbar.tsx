@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { Link, useLocation } from 'react-router-dom';
 import AppButton from '../common/AppButton';
 import { navLinks } from '../../data';
@@ -43,10 +43,10 @@ const Navbar: React.FC = () => {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
+          backgroundColor: scrolled ? 'rgba(251, 250, 247, 0.85)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(108,99,255,0.1)' : 'none',
-          boxShadow: scrolled ? '0 4px 20px rgba(108,99,255,0.08)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(15, 118, 110, 0.08)' : 'none',
+          boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.02)' : 'none',
           transition: 'all 0.3s ease',
         }}
       >
@@ -68,27 +68,26 @@ const Navbar: React.FC = () => {
                 sx={{
                   width: 36,
                   height: 36,
-                  borderRadius: 2,
-                  background: 'linear-gradient(135deg, #6C63FF, #FF6584)',
+                  borderRadius: 1.5,
+                  background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 4px 12px rgba(108,99,255,0.35)',
                 }}
               >
-                <AutoAwesomeIcon sx={{ color: '#fff', fontSize: 18 }} />
+                <TravelExploreIcon sx={{ color: '#ffffff', fontSize: 20 }} />
               </Box>
               <Typography
                 variant="h6"
                 sx={{
-                  fontWeight: 800,
-                  background: 'linear-gradient(135deg, #6C63FF, #FF6584)',
+                  fontWeight: 900,
+                  letterSpacing: '-0.02em',
+                  background: 'linear-gradient(90deg, #0f766e 0%, #b45309 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
                 }}
               >
-                AP Tech
+                Roamify
               </Typography>
             </Box>
 
@@ -113,13 +112,13 @@ const Navbar: React.FC = () => {
                       py: 1,
                       borderRadius: 2,
                       fontSize: '0.9rem',
-                      fontWeight: isActive(link.href) ? 700 : 500,
+                      fontWeight: isActive(link.href) ? 750 : 500,
                       color: isActive(link.href) ? 'primary.main' : 'text.primary',
-                      backgroundColor: isActive(link.href) ? 'rgba(108,99,255,0.08)' : 'transparent',
+                      backgroundColor: isActive(link.href) ? 'rgba(15, 118, 110, 0.06)' : 'transparent',
                       transition: 'all 0.2s ease',
                       '&:hover': {
                         color: 'primary.main',
-                        backgroundColor: 'rgba(108,99,255,0.06)',
+                        backgroundColor: 'rgba(15, 118, 110, 0.04)',
                       },
                     }}
                   >
@@ -136,7 +135,7 @@ const Navbar: React.FC = () => {
                   Sign In
                 </AppButton>
                 <AppButton variant="contained" size="small" color="primary">
-                  Get Started
+                  Book Now
                 </AppButton>
               </Box>
             )}
@@ -163,9 +162,10 @@ const Navbar: React.FC = () => {
           paper: {
             sx: {
               width: 280,
-              p: 2,
-              background: 'rgba(255,255,255,0.97)',
+              p: 3,
+              background: 'rgba(251, 250, 247, 0.98)',
               backdropFilter: 'blur(20px)',
+              borderLeft: '1px solid rgba(15, 118, 110, 0.08)',
             },
           },
         }}
@@ -190,14 +190,14 @@ const Navbar: React.FC = () => {
                   borderRadius: 2,
                   mb: 0.5,
                   '&.Mui-selected': {
-                    backgroundColor: 'rgba(108,99,255,0.1)',
+                    bgcolor: 'rgba(15, 118, 110, 0.08)',
                     color: 'primary.main',
                   },
                 }}
               >
                 <ListItemText
                   primary={link.label}
-                  slotProps={{ primary: { sx: { fontWeight: isActive(link.href) ? 700 : 500 } } }}
+                  slotProps={{ primary: { sx: { fontWeight: isActive(link.href) ? 750 : 500 } } }}
                 />
               </ListItemButton>
             </ListItem>
@@ -208,7 +208,7 @@ const Navbar: React.FC = () => {
             Sign In
           </AppButton>
           <AppButton variant="contained" color="primary" fullWidth>
-            Get Started Free
+            Book Now
           </AppButton>
         </Box>
       </Drawer>

@@ -9,9 +9,9 @@ const TestimonialsSection: React.FC = () => {
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.paper' }}>
       <Container maxWidth="lg">
         <SectionHeading
-          eyebrow="Testimonials"
-          title="Loved by Developers & Product Teams"
-          subtitle="See what our community has to say about their experience using AP Tech components to build their web applications."
+          eyebrow="Traveler Experiences"
+          title="Stories From the Road"
+          subtitle="Read authentic reviews and reflections from explorers who designed their bucket-list getaways with Roamify."
         />
         <Grid container spacing={3}>
           {testimonials.map((testimonial) => (

@@ -5,6 +5,7 @@ import TeamCard from '../components/common/TeamCard';
 import { team } from '../data';
 
 const About: React.FC = () => {
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
@@ -13,18 +14,24 @@ const About: React.FC = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="overline"
-              sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: '0.12em', display: 'block', mb: 2 }}
+              sx={{ 
+                color: 'secondary.main', 
+                fontWeight: 900, 
+                letterSpacing: '0.15em', 
+                display: 'block', 
+                mb: 2 
+              }}
             >
-              Our Mission
+              Our Vision
             </Typography>
-            <Typography variant="h2" sx={{ mb: 3, fontWeight: 800, fontSize: { xs: '2rem', md: '2.8rem' } }}>
-              Empowering Developers to Build Beautiful Interfaces
+            <Typography variant="h4" component="h1" sx={{ mb: 3, fontWeight: 'bold' }}>
+              Expanding Horizons Through Curated Explorations
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.85, fontSize: '1.05rem' }}>
-              We started AP Tech in 2026 with a simple conviction: building premium user interfaces shouldn't require weeks of repetitive code. We created a modular, consistent, and highly reusable design kit that allows engineering teams of any size to launch exceptional products.
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.85 }}>
+              Roamify was founded in 2026 with a bold objective: to make the world’s most spectacular cultural, active, and coastal destinations accessible through seamless luxury and authentic local immersion. We design custom-chartered itineraries that connect travelers with the true heartbeat of each region.
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-              Our design systems leverage Material UI to combine robust accessiblity standards with sleek, modern gradients, glassmorphism, and responsive typography out-of-the-box.
+              Whether you are watching the sunset over Amalfi cliffside villages, observing pride of lions on the Serengeti plains, or drinking high-grade matcha in Kyoto’s historic tea houses, our global curators coordinate every flight booking, room upgrade, private transfer, and entry ticket so you can wander with absolute peace of mind.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -32,17 +39,15 @@ const About: React.FC = () => {
               sx={{
                 height: { xs: 300, md: 400 },
                 borderRadius: 4,
-                background: 'linear-gradient(135deg, #6C63FF 0%, #FF6584 100%)',
-                boxShadow: '0 24px 64px rgba(108,99,255,0.22)',
-                position: 'relative',
-                overflow: 'hidden',
+                background: 'linear-gradient(135deg, #0f766e 0%, #b45309 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                boxShadow: '0 20px 50px rgba(15, 118, 110, 0.15)',
               }}
             >
-              <Typography variant="h1" sx={{ color: 'rgba(255,255,255,0.12)', fontSize: '8rem', fontWeight: 900 }}>
-                LMY
+              <Typography variant="h1" sx={{ color: 'rgba(255, 255, 255, 0.15)', fontSize: '6rem', fontWeight: 900, letterSpacing: '0.05em', userSelect: 'none' }}>
+                RMF
               </Typography>
             </Box>
           </Grid>
@@ -50,9 +55,9 @@ const About: React.FC = () => {
 
         {/* Team list */}
         <SectionHeading
-          eyebrow="Our Team"
-          title="Meet the Brains Behind AP Tech"
-          subtitle="A globally distributed team of designers, engineers, and product builders dedicated to crafting developer experiences."
+          eyebrow="Our Experts"
+          title="Meet Our Destination Directors"
+          subtitle="A veteran team of travel specialists, culinary critics, and safari rangers working to curate your seamless adventure."
         />
         <Grid container spacing={4}>
           {team.map((member) => (

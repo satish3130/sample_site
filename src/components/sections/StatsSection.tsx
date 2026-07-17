@@ -7,10 +7,11 @@ const StatsSection: React.FC = () => {
   return (
     <Box
       sx={{
-        py: 8,
-        background: 'linear-gradient(135deg, #6C63FF 0%, #FF6584 100%)',
-        position: 'relative',
-        overflow: 'hidden',
+        py: 6,
+        bgcolor: 'background.paper',
+        borderTop: '1px solid',
+        borderBottom: '1px solid',
+        borderColor: 'divider',
       }}
     >
       <Container maxWidth="lg">

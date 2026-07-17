@@ -39,35 +39,37 @@ const Contact: React.FC = () => {
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, backgroundColor: 'background.default', minHeight: '85vh' }}>
       <Container maxWidth="lg">
-        <SectionHeading
-          eyebrow="Contact Us"
-          title="Get In Touch Today"
-          subtitle="Have a question or want to build something custom? Drop us a line and our expert team will respond within 24 hours."
-        />
+        <Box sx={{ mb: 2 }}>
+          <SectionHeading
+            eyebrow="Get In Touch"
+            title="Plan Your Bespoke Trip"
+            subtitle="Have questions about customizable itineraries, group reservations, travel advisories, or partnerships? Reach our travel curators."
+          />
+        </Box>
 
         <Grid container spacing={5}>
           {/* Contact Details */}
           <Grid size={{ xs: 12, md: 5 }}>
-            <Typography variant="h4" sx={{ fontWeight: 800, mb: 3 }}>
-              Let's Talk!
+            <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 3 }}>
+              Travel HQ & Curators
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-              Whether you need technical support, enterprise options, or custom theme development, we are ready to assist.
+              Our dedicated curators are available to structure customized luxury tours, assist with travel insurance/visa documentation, and resolve flight changes.
             </Typography>
 
             <Stack spacing={3}>
               {[
-                { icon: <EmailIcon color="primary" />, label: 'Email', value: 'hello@AP Tech.com' },
-                { icon: <PhoneIcon color="primary" />, label: 'Phone', value: '+1 (555) 019-2834' },
-                { icon: <RoomIcon color="primary" />, label: 'Office', value: '100 Pine Street, San Francisco, CA' },
+                { icon: <EmailIcon color="primary" />, label: 'Email Curators', value: 'curator@roamify.travel' },
+                { icon: <PhoneIcon color="primary" />, label: 'Call Travel Concierge', value: '+1 (800) ROAM-HELP' },
+                { icon: <RoomIcon color="primary" />, label: 'Headquarters Office', value: '12 Luxury Boulevard, Colaba, Mumbai' },
               ].map((item, i) => (
                 <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Box
                     sx={{
                       width: 44,
                       height: 44,
-                      borderRadius: 2,
-                      bgcolor: 'rgba(108,99,255,0.08)',
+                      borderRadius: 1,
+                      bgcolor: 'rgba(15, 118, 110, 0.06)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -76,10 +78,10 @@ const Contact: React.FC = () => {
                     {item.icon}
                   </Box>
                   <Box>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', fontWeight: 600 }}>
+                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', fontWeight: 'bold' }}>
                       {item.label}
                     </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                       {item.value}
                     </Typography>
                   </Box>
@@ -90,10 +92,10 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <Grid size={{ xs: 12, md: 7 }}>
-            <Card sx={{ border: '1px solid rgba(108,99,255,0.12)' }}>
+            <Card sx={{ border: '1px solid', borderColor: 'divider', boxShadow: '0 8px 30px rgba(0,0,0,0.01)' }}>
               <CardContent sx={{ p: 4 }}>
                 <form onSubmit={handleSubmit}>
-                  <Grid container spacing={2}>
+                  <Grid container spacing={3}>
                     <Grid size={{ xs: 12, sm: 6 }}>
                       <TextField
                         label="Full Name"
@@ -117,7 +119,7 @@ const Contact: React.FC = () => {
                     </Grid>
                     <Grid size={12}>
                       <TextField
-                        label="Subject"
+                        label="Intended Destination (e.g. Kyoto, Japan)"
                         name="subject"
                         fullWidth
                         required
@@ -127,7 +129,7 @@ const Contact: React.FC = () => {
                     </Grid>
                     <Grid size={12}>
                       <TextField
-                        label="Message"
+                        label="Tell us about your dream trip (preferred dates, group size, budget, or activities)"
                         name="message"
                         multiline
                         rows={4}
@@ -142,11 +144,11 @@ const Contact: React.FC = () => {
                         type="submit"
                         variant="contained"
                         loading={loading}
-                        gradient
+                        color="secondary"
                         fullWidth
-                        sx={{ mt: 1, py: 1.5 }}
+                        sx={{ mt: 1, py: 1.6 }}
                       >
-                        Send Message
+                        Submit Travel Query
                       </AppButton>
                     </Grid>
                   </Grid>
@@ -155,18 +157,13 @@ const Contact: React.FC = () => {
             </Card>
           </Grid>
         </Grid>
-
-        <Snackbar
-          open={success}
-          autoHideDuration={6000}
-          onClose={() => setSuccess(false)}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        >
-          <Alert severity="success" sx={{ width: '100%' }}>
-            Your message has been sent successfully! We will get back to you soon.
-          </Alert>
-        </Snackbar>
       </Container>
+
+      <Snackbar open={success} autoHideDuration={6000} onClose={() => setSuccess(false)}>
+        <Alert onClose={() => setSuccess(false)} severity="success" sx={{ width: '100%' }}>
+          Thank you! Our travel expert will contact you soon.
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

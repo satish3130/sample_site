@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
 import theme from './theme/theme';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -16,9 +17,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
-          <main style={{ flexGrow: 1 }}>
+          <Box component="main" sx={{ flexGrow: 1 }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/features" element={<Features />} />
@@ -27,9 +28,9 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </main>
+          </Box>
           <Footer />
-        </div>
+        </Box>
       </Router>
     </ThemeProvider>
   );

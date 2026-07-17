@@ -9,13 +9,13 @@ const PricingSection: React.FC = () => {
     <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <SectionHeading
-          eyebrow="Pricing Plans"
-          title="Transparent Pricing for Every Stage"
-          subtitle="Choose the perfect plan for your needs. Scale seamlessly as your product and team grow."
+          eyebrow="Signature Packages"
+          title="Handcrafted Luxury Tours"
+          subtitle="Choose from our most requested travel itineraries, inclusive of five-star stays, activities, and expert local guides."
         />
-        <Grid container spacing={6} sx={{ mt: { md: 2 }, alignItems: 'stretch' }}>
+        <Grid container spacing={4} sx={{ mt: { md: 2 }, alignItems: 'stretch' }}>
           {pricingPlans.map((plan) => (
-            <Grid size={{ xs: 12, md: 6 }} key={plan.id}>
+            <Grid size={{ xs: 12, md: 4 }} key={plan.id}>
               <PricingCard plan={plan} />
             </Grid>
           ))}

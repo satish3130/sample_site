@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, SxProps, Theme } from '@mui/material';
+import { Typography, SxProps, Theme, Paper } from '@mui/material';
 import * as MuiIcons from '@mui/icons-material';
 import type { Stat } from '../../types';
 
@@ -9,40 +9,44 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ stat, sx }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const IconComponent = (MuiIcons as any)[stat.icon] || MuiIcons.Star;
 
   return (
-    <Box
+    <Paper
+      elevation={0}
       sx={{
         textAlign: 'center',
-        p: 3,
-        borderRadius: 3,
-        background: 'rgba(255,255,255,0.12)',
-        backdropFilter: 'blur(16px)',
-        border: '1px solid rgba(255,255,255,0.2)',
-        transition: 'transform 0.25s ease',
-        '&:hover': { transform: 'translateY(-4px)' },
+        p: 3.5,
+        borderRadius: 4,
+        bgcolor: 'background.paper',
+        border: `1px solid rgba(15, 118, 110, 0.08)`,
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        '&:hover': {
+          transform: 'translateY(-4px)',
+          boxShadow: '0 12px 30px rgba(15, 118, 110, 0.1)',
+          borderColor: 'secondary.main',
+        },
         ...sx,
       }}
     >
-      <IconComponent sx={{ fontSize: 36, color: 'rgba(255,255,255,0.85)', mb: 1.5 }} />
+      <IconComponent color="primary" sx={{ fontSize: 36, mb: 1.5 }} />
       <Typography
-        variant="h3"
+        variant="h4"
+        component="div"
         sx={{
-          fontWeight: 900,
-          color: '#fff',
+          fontWeight: 800,
           lineHeight: 1,
-          mb: 0.75,
-          fontSize: { xs: '2rem', md: '2.5rem' },
+          mb: 1,
+          color: 'text.primary',
         }}
       >
         {stat.value}
       </Typography>
-      <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
+      <Typography variant="subtitle2" color="text.secondary" sx={{ fontWeight: 600 }}>
         {stat.label}
       </Typography>
-    </Box>
+    </Paper>
   );
 };
 

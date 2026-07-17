@@ -17,17 +17,12 @@ interface TestimonialCardProps {
   sx?: SxProps<Theme>;
 }
 
-const avatarColors = ['#6C63FF', '#FF6584', '#43D9A3', '#FFA726', '#29B6F6', '#AB47BC'];
-
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, sx }) => {
-  const colorIndex = testimonial.id % avatarColors.length;
-  const avatarColor = avatarColors[colorIndex];
-
   return (
     <Card
+      variant="outlined"
       sx={{
         height: '100%',
-        p: 0.5,
         position: 'relative',
         ...sx,
       }}
@@ -35,9 +30,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, sx }) =>
       <CardContent sx={{ p: 3 }}>
         <FormatQuoteIcon
           sx={{
-            fontSize: 48,
-            color: 'primary.main',
-            opacity: 0.15,
+            fontSize: 40,
+            color: 'action.disabled',
+            opacity: 0.25,
             position: 'absolute',
             top: 16,
             right: 16,
@@ -47,24 +42,24 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, sx }) =>
         <Typography
           variant="body2"
           color="text.secondary"
-          sx={{ lineHeight: 1.8, mb: 3, fontStyle: 'italic' }}
+          sx={{ mb: 3, fontStyle: 'italic' }}
         >
           "{testimonial.text}"
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <Avatar
             sx={{
-              bgcolor: avatarColor,
-              fontWeight: 700,
+              bgcolor: 'primary.main',
+              fontWeight: 'bold',
               fontSize: '0.85rem',
-              width: 44,
-              height: 44,
+              width: 36,
+              height: 36,
             }}
           >
             {testimonial.avatar}
           </Avatar>
           <Box>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
               {testimonial.name}
             </Typography>
             <Typography variant="caption" color="text.secondary">

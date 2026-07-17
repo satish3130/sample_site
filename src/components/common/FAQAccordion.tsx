@@ -38,7 +38,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
             transition: 'all 0.25s ease',
             '&:before': { display: 'none' },
             ...(expanded === item.id && {
-              boxShadow: '0 4px 20px rgba(108,99,255,0.12)',
+              boxShadow: '0 4px 20px rgba(15, 118, 110, 0.08)',
             }),
           }}
         >
